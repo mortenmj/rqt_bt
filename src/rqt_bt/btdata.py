@@ -73,11 +73,15 @@ class BTData(object):
         if update_sub_name:
             rospy.Subscriber(update_sub_name, BehaviorTreeNodes, self._bt_update_cb)
 
-        self.tree = {}
+        self.tree = None
         self.active_nodes = []
 
     def get_graph(self):
-        graph = tree_graph(self.tree)
+        try:
+            graph = tree_graph(self.tree)
+        except:
+            graph = nx.OrderedDiGraph()
+
         G = nx.drawing.nx_agraph.to_agraph(graph)
 
         return G, self.active_nodes

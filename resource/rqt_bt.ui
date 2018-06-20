@@ -16,9 +16,9 @@
   <property name="windowTitle">
    <string>Behavior Tree</string>
   </property>
-  <layout class="QVBoxLayout" name="verticalLayout" stretch="0,0,0">
+  <layout class="QVBoxLayout" name="verticalLayout" stretch="0,0">
    <item>
-    <layout class="QHBoxLayout" name="horizontalLayout" stretch="0,0,0,0,0,0,0,0,0,0,0,0">
+    <layout class="QHBoxLayout" name="horizontalLayout" stretch="0,0,0,0,0,0,0,0,0,0,0">
      <item>
       <widget class="QCheckBox" name="highlight_connections_check_box">
        <property name="toolTip">
@@ -86,19 +86,6 @@
       </spacer>
      </item>
      <item>
-      <widget class="QPushButton" name="load_dot_push_button">
-       <property name="toolTip">
-        <string>Load DOT graph from file</string>
-       </property>
-       <property name="iconSize">
-        <size>
-         <width>16</width>
-         <height>16</height>
-        </size>
-       </property>
-      </widget>
-     </item>
-     <item>
       <widget class="QPushButton" name="save_dot_push_button">
        <property name="toolTip">
         <string>Save as DOT graph</string>
@@ -158,19 +145,6 @@
       </widget>
      </item>
     </layout>
-   </item>
-   <item>
-    <widget class="QWidget" name="widget" native="true">
-     <layout class="QHBoxLayout" name="horizontalLayout_4">
-      <item>
-       <widget class="Line" name="line">
-        <property name="orientation">
-         <enum>Qt::Vertical</enum>
-        </property>
-       </widget>
-      </item>
-     </layout>
-    </widget>
    </item>
    <item>
     <widget class="InteractiveGraphicsView" name="graphics_view">

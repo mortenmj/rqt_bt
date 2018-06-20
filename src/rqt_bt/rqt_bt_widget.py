@@ -60,9 +60,6 @@ class BTWidget(QWidget):
         self.depth_spin_box.setMinimum(-1)
         self.depth_spin_box.valueChanged.connect(self._refresh_rosgraph)
 
-        self.load_dot_push_button.setIcon(QIcon.fromTheme('document-open'))
-        self.load_dot_push_button.pressed.connect(self._load_dot)
-
         self.save_dot_push_button.setIcon(QIcon.fromTheme('document-save-as'))
         self.save_dot_push_button.clicked.connect(self._save_dot)
 
@@ -172,21 +169,6 @@ class BTWidget(QWidget):
         self._scene.setSceneRect(self._scene.itemsBoundingRect())
         if self.auto_fit_graph_check_box.isChecked():
             self._fit_in_view()
-
-    def _load_dot(self, file_name=None):
-        if file_name is None:
-            file_name, _ = QFileDialog.getOpenFileName(self, self.tr('Open graph from file'), None, self.tr('DOT graph (*.dot)'))
-            if file_name is None or file_name == '':
-                return
-
-        try:
-            fh = open(file_name, 'rb')
-            dotcode = fh.read()
-            fh.close()
-        except IOError:
-            return
-
-        self._update_graph_view(dotcode)
 
     def _fit_in_view(self):
         self.graphics_view.fitInView(self._scene.itemsBoundingRect(), Qt.KeepAspectRatio)
